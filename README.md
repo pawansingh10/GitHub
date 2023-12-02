@@ -76,6 +76,67 @@ Hello Welcome in the world of Git and GitHub
 ## Installing Git
 - [**git-scm.com**](https://git-scm.com/)
 - Download cmd line version -> check from your command prompt git --version
+- Git Bash is terminal in linux, here act as simulator to run linux cmd on Windows OS
+
+## Configure Git
+- Who are you? bcuz you're going to be a user of Distributed repository So create your identity
+- git config --global user.name "User_name"
+- git config --global user.email "User_email"
+
+
+# Section 4 : Command Line Tool
+| GUI   |    CLT|
+|-------|-------|
+|Graphical User Interface| Command Line Interface/Tool|
+|Response Time increase | Servers are mostly on Linux OS, Only GUI No GUI support bcuz of RAM,Memory,Speed|
+
+- Undersatnding folders & files
+  - pwd -> print working directory (currently in) , C:/ -> root directory , . -> current directory , .. -> parent directory
+  - ls -> list all items
+  - ls -l -> give this list format
+  - ls -a -> show hidden files & folders
+  - clear -> clear shell
+  - ls -al -> combined of l and a
+
+- **cd - change directory**
+  - cd ./Downloads  -> move from current directory to Downloads
+  - cd .. -> get back to one step backward
+  - cd -> directly take you to home
+  - cd ~ -> directly to home directory
+  - cd ./Downloads/DSA  -> move from current directory to Downloads inside that DSA
+ 
+- **Create Files & Folders**
+  - mkdir CLI -> make directory with the name CLI
+  - mkdir F1 F2 F3 -> Single time create 3 folders named F1 F2 F3
+  - mkdir -p F4/F4_1 -> create F4 folder at the same time another folder under F1 named F4_1
+  - mkdir F2/F6  -> Already F2 is there inside that F6 will be created
+  - touch file.txt -> create an empty file with whatever extension you wnat
+  - open script.js -> want to edit or work with file But open will not work on windows
+ 
+- **Delete Files & Folders**
+  - rm file.txt -> delete the file
+  - rm f1/file.txt -> delete the file from f1 folder
+  - rmdir CLI -> remove delete empty folder permanently of folder named CLI 
+  - rm -R CLI -> delete even non-empy folder R means Recurcive
+ 
+- **Copy and Move**
+   - cp script.js f1/script.js
+   - cp f2/index.html f1/index.html
+   - cp -R f4 new
+   - mv index.html f1/index.html
+   - mv script.js hello.js -> for renaming use move only 
+  
+  > ***You can up & down arrow key for prev & next cmd which you executed***
+
+
+# Section 5 : Git Introduction
+
+## Intro
+   
+ 
+
+
+
 
 
 
