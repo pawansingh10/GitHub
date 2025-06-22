@@ -27,21 +27,37 @@ Hello Welcome in the world of Git and GitHub
 # Section 2 : Version Control System
 
 ## Web portfolio
-- index.html -> about.html
+How do you create a project, How would you manage changes?
+- index.html -> Version 1
+- index.html + about.html -> Version 2
+- index.html + about.html + contact.html -> Version 3
+  
+You will do all this Through Version Control System (VCS) and **Git** is most popular and widely used VCS.
 
 ## Version Control System
-- Version Control is a <ins>**manager software**</ins> responsible for **managing chnages** to the computer programs, doc, websites & other collection of info.
+**Advantages of VCS**
+- Version Control is a <ins>**manager software**</ins> responsible for **managing changes** to the computer programs, docs, websites & other collection of info.  
 - Easy recovery of files/folders
 - Rollback to the previous versions
-- Informs about who, what, when, why changes have been made
+- Informs about who, what, when, why changes have been made?
 
 ## History of VCS - Evolution
+How VCS evolve over time?
+- From Basic VCS to Distributed VCS
+- Basically There are 3 types of VCS :-
+  
 1. **Local VCS**
-   - Changes are stored in a database, along with timestamp
+   - It is very basic.
+     ![Local VCS](https://devops2manager.wordpress.com/wp-content/uploads/2019/12/local_vcs.jpg?w=661)
+   - Changes are stored in a database, along with timestamp.
    - Code in local system
-   - Cons -> Project can be lost, if your hard-disk is corrupted
+   - Cons/Disadvantage -> Project can be lost, if your hard-disk is corrupted
+
+  So although Local VCS solving problem of How would you manage & track timestamp of different-2 versions in database.
+  But due to disadvantage of project getting lost We dont't use local vcs.
      
-2. **Centralize VCS**
+3. **Centralize VCS**
+   Before going in details of Central VCS, Let's see some terminology 
    - **Repository** -> A directory(folder) where your files reside
    - Repository can be a local folder in your PC or a remote folder on a server
    - There are 2 types of repository :-
@@ -49,33 +65,77 @@ Hello Welcome in the world of Git and GitHub
      2. Central Repository
     
    - Centralized VCS contain just one repository i.e Central repository and each user can access it to work
-   - Cons -> Server goes down then nobody can work + if server hard-disk corrupt
+     ![Centralized VCS](https://github.com/user-attachments/assets/ba79580c-0cbb-4f1f-aa23-1aa51e859a81)
 
-3. **Distributed VCS**
+     But there is no local Repository Copy is available to to the users locally.
+     Everytime they have to update & commit on the server repository.
+     That's the biggest disadvantage of Centralised VCS.
+     
+   - Cons -> What If Server goes down then nobody can work + if server hard-disk corrupt
+
+     So, To overcome these, We will used **Distributed VCS** and Git is one of the distributed VCS
+     
+5. **Distributed VCS**
+   This is one of the most popular VCS among everyone Software Engg, Data Scientists.
+   ![Distributed](https://www.edureka.co/blog/wp-content/uploads/2016/11/Distributed-Version-Control-System-Workflow-What-Is-Git-Edureka.png)
    - Contains multiple repositories, each users has their own local repository & there is a central repository where the final code resides
    - push & pull to/from central repository by each users
-   - provide full back-up of the project, all users will have full project
-   - eg: Git is an example of distributed vcs
+   - provide **full back-up of the project**, all users will have full project
+   - eg: **Git** is an example of distributed vcs
    - n local repositories --push-->.....<--pull-- 1 server repository
    - Everyone uses this Distributed VCS
   
+   **Summary**
+   ![3 Types of VCS](https://www.hallme.com/uploads/version-control-models.jpg)
+  
 ## How is Git created?
-- In 2005, by Linus Torvalds (creator of Linux Kernel on which many OS created like ubuntu,kali linex etc)
-
+- In 2005, by Linus Torvalds (creator of Linux Kernel on which many OS created like ubuntu,kali linex etc) ![Linux](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9yLnU8DeLra28nxon_PTtSAYW1ipoSqYzDcthbm_sOcGaMdCyg5-E32tU&s)
+![Linus Torvald](https://ideas.ted.com/wp-content/uploads/sites/3/2016/04/featured_torvalds_linux_ted_31.jpg)
+- He started working on creating Linux Kernel from the year 1991, till 2002 everything going well.
+- Linux Developer Community grows as big team, So they started using the Distrubted VCS which was **Bitkeeper** at that time.
+- In 2004, Conflict started between Linus Torvald and Bitkeeper Founding team for free premium subscription.
+- Linus thought Why should I pay for VCS a basic software Let's create own VCS.
+- So They started creating Git in 2004.
+  
 ## What is Git?
-- **free and open source** distributed VCS designed to handle everything from mini to macro projects ***with speed & efficiency***
-- Stores snapshot of your project (not differences)
+![Git](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQ5Hg9lxzwQVOFMaIy693szddkxrILj462hC0FxjWClk_hZYdRhobvB0s&s)
+- Git is **free and open source** distributed VCS designed to handle everything from mini to macro projects ***with speed & efficiency***
+- Git Stores snapshot of your project (not differences)
+  How?
+  Git actually doesn't store the changes you have made rather take the snapshop of whole project at current
+  | Differences in Versions |
+  |-------|
+  ![Git Difference](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5mIKviC6XV6yjWyrQvBgyPnlGp0cpJwNHjw&s)
+
+   | Snapshot of Versions |
+   |----------|
+  ![Git Snapshot](https://git-scm.com/book/be/v2/images/snapshots.png)
 
 ## Why Git & its Features
-- Why Git -> **{ 1.Collaboration, 2.Storing Versions, 3.Analyse Code Changes }**
-- Features -> **{ 1.Distributed, 2.Everything is Locally, 3.Non-linear/Branching, 4.Secure/Integrity(Hashing), 5.Speed(C) }**
+![Git](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQ5Hg9lxzwQVOFMaIy693szddkxrILj462hC0FxjWClk_hZYdRhobvB0s&s)
+- Why do we use Git?
+   - **1. Collaboration** means when lots of developers work together for creating a project even if they're at remote locations.
+   - **2. Storing Versions**
+   - **3. Analyse the Code Changes**
+- Features -
+   - **1.Distributed** means different users will have the copy of original repository locally to work upon
+   - **2.Everything is Locally** All the changes you will made locally once you satified & get green signal then only you will push and commit the changes on original repo of server unlike Centralize VCS where you will push or commit each changes everytime in original repo of Server. 
+   - **3.Non-linear Development/Branching**
+       - Most important feature of it, Suppose you're working on Google Website & you want to create one more feature but you're not very sure that this feature will work or not this might destoy other features that are already working fine.
+       - ![Branching](https://book.the-turing-way.org/build/one-branch-210af77c43a042bcaf2b2c8d4ed00864.png)
+   - **4.Secure/Integrity(Hashing)**
+       - Since Git uses SHA-1, basically means Git uses Hashing & Crypto Algo for each commit each changes so that the changes we made will be very secure
+   - **5.Speed(C)**
+       - bcuz Git is written in language C and C language is close to Hardware.
 
 
 # Section 3 : Setting Up Environment
 
 ## Installing Git
 - [**git-scm.com**](https://git-scm.com/)
-- Download cmd line version -> check from your command prompt git --version
+- Once you Download and install Git, You will see 3 options in your window searchbar  Git Bash, Git CMD and Git GUI
+- We're going to use Git Bash, which is like similar to Command Prompt but more powerful than Command Prompt bcuz Command Prompt is only for Windows and we are going to use some Linux cmd on Git Bash.
+- cmd line version -> check from your command prompt git --version
 - Git Bash is terminal in linux, here act as simulator to run linux cmd on Windows OS
 
 ## Configure Git
