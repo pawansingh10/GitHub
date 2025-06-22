@@ -136,48 +136,174 @@ How VCS evolve over time?
 - Once you Download and install Git, You will see 3 options in your window searchbar  Git Bash, Git CMD and Git GUI
 - We're going to use Git Bash, which is like similar to Command Prompt but more powerful than Command Prompt bcuz Command Prompt is only for Windows and we are going to use some Linux cmd on Git Bash.
 - cmd line version -> check from your command prompt git --version
-- Git Bash is terminal in linux, here act as simulator to run linux cmd on Windows OS
+  
+- Git Bash is terminal in linux, here act as simulator to run linux cmd on Windows OS. That's why we are preferring Git Bash
 
 ## Configure Git
+Once you download & install Git Setup on your device, Now It's time to configure the Git.
+- Why does we need to confiure it, It's something like logging in.
+- Whenever you save some version of your project in the Git, So Git should understand who is making and saving the changes. bcuz lot of people/collaborator can make changes right, So You need to give your identity WHO ARE YOU?
 - Who are you? bcuz you're going to be a user of Distributed repository So create your identity
-- git config --global user.name "User_name"
-- git config --global user.email "User_email"
+- To give you identity to Git, basically you need to run below 2 commands:-
+- You can check whether Git install properly on not by git --version
+  ```shell
+  git --version
+  ```
+  ```shell
+  git config --global user.name "User_name"
+  ```
+  ```bash
+  git config --global user.email "User_email"
+  ```
+**Summary**
+![image](https://github.com/user-attachments/assets/eb7c5ad2-7f3d-4e82-a111-4ea211d95eee)
 
 
 # Section 4 : Command Line Tool
-| GUI   |    CLT|
-|-------|-------|
-|Graphical User Interface| Command Line Interface/Tool|
-|Response Time increase | Servers are mostly on Linux OS, Only GUI No GUI support bcuz of RAM,Memory,Speed|
 
-- Undersatnding folders & files
-  - pwd -> print working directory (currently in) , C:/ -> root directory , . -> current directory , .. -> parent directory
-  - ls -> list all items
-  - ls -l -> give this list format
-  - ls -a -> show hidden files & folders
-  - clear -> clear shell
-  - ls -al -> combined of l and a
+If you don't know about Terminal, Command Prompt, PowerShell. 
+
+Don't Worry.
+
+There are two ways to interacts with your computer/device to work on files and folders and whatever you want to do.
+
+|  1st Way    |   2nd Way  |
+|-------|-------|
+| GUI   |    CLT|
+|Graphical User Interface| Command Line Interface/Tool|
+| By clicking through Mouse on the folders, buttons etc to open....  |It's something like write command for every action you want to perform unlike clicking through Mouse |
+| Why GUI? Not CLI | Why CLI> Not GUI |
+|Response Time increase | Servers are mostly on Linux OS, Only CLI No GUI support bcuz of RAM,Memory,Speed constraints|
+
+- **Terminal** for MacOS and Linux or **Command Prompt/PowerShell** for Windows or else we can use **Git Bash**  all of these are command line tool. 
+
+- **Understanding folders & files**
+  
+  - **pwd -> print working directory** (currently in) , C:/ -> root directory , . -> current directory , .. -> parent directory
+    ```shell
+    pwd
+    ```
+    
+    / slash means root directory and that's top most directory for Linux,MacOS,Windows
+    
+    After / Slash you will see Users folders or C/Users/PawanSingh
+    
+  - **ls -> list all items**
+    ```shell
+    ls
+    ```
+    
+  - **ls -l -> give this list format**
+    ```shell
+    ls -l
+    ```
+  - **ls -a -> show hidden files & folders**
+    ```shell
+    ls -a
+    ```
+    
+  -  **. (dot) means refering to current directory**
+     ```shell
+     cd .
+     ```
+     
+  -  **..(dot dot) means refering to parent directory**
+    ```shell
+     cd ..
+     ```
+     
+  - **clear -> clear shell**
+   ```shell
+    clear 
+    ```
+  - **ls -al -> combined of l and a**
+    ```shell
+    ls -al
+    ```
+    
 
 - **cd - change directory**
-  - cd ./Downloads  -> move from current directory to Downloads
+  - cd ./Downloads  -> move from current directory to Downloads.Here, .(dot) stands for current folder and from there we will move to Download folder
+  ```shell
+    cd ./Downloads
+  ```
   - cd .. -> get back to one step backward
+    ```shell
+    cd ..
+    ```
   - cd -> directly take you to home
+  ```shell
+    cd 
+    ```
   - cd ~ -> directly to home directory
+  ```shell
+    cd ~
+    ```
   - cd ./Downloads/DSA  -> move from current directory to Downloads inside that DSA
+  ```shell
+    cd ./Downloads/DSA
+    ```
  
 - **Create Files & Folders**
+  Let's see How do we create Files and Folders through commands
+  
   - mkdir CLI -> make directory with the name CLI
+  ```shell
+  mfdir myphotos
+  ```
+  
   - mkdir F1 F2 F3 -> Single time create 3 folders named F1 F2 F3
+  ```shell
+  mfdir myfolder1 myfolder2 myfolder3
+  ```
+  ```shell
+  mfdir myfolder1,myfolder2,myfolder3
+  ```
+  
   - mkdir -p F4/F4_1 -> create F4 folder at the same time another folder under F1 named F4_1
+    So for that there is a flag -p
+  ```shell
+  mfdir -p myfolder1/photo/image
+  ```
+    
   - mkdir F2/F6  -> Already F2 is there inside that F6 will be created
-  - touch file.txt -> create an empty file with whatever extension you wnat
+  ```shell
+  mkdir -p myfolder1/photo/image
+  ```
+  - touch file.txt -> create an empty file with whatever extension you want
+  ```shell
+  touch file.txt
+  ```
   - open script.js -> want to edit or work with file But open will not work on windows
- 
+   ```shell
+  touch script.js
+  ```
+   
 - **Delete Files & Folders**
-  - rm file.txt -> delete the file
+Let's see How in terminal we can delete files and folders
+  - **rm file_name -> delete the file**
+    ```shell
+    rm script.js
+    ```
   - rm f1/file.txt -> delete the file from f1 folder
-  - rmdir CLI -> remove delete empty folder permanently of folder named CLI 
+    ```shell
+    rm folder/script.js
+    ```
+  > **rm can only remove files not directory so to remove directory there is rmdir**
+
+  ```shell
+    rmdir folder
+    ```
+  
+  - rmdir CLI -> remove delete empty folder permanently of folder named CLI
+    ```shell
+    rmdir folder/script.js
+    ```
+  > **In Case of Non Empty Directory rmdir doesn't work, So we have rm -R** 
   - rm -R CLI -> delete even non-empy folder R means Recurcive
+    ```shell
+    rm -R  folder/script.js
+    ```
  
 - **Copy and Move**
    - cp script.js f1/script.js
