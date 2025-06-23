@@ -522,6 +522,23 @@ But If you have a new file like About.html, Here About.html will have nothing to
 
 ## Example of Lifecycle of the Status
 
+Let's Create About.html file and see.....
+
+![image](https://github.com/user-attachments/assets/5a175d42-a83f-495b-8800-75695d8d5434)
+
+
+![image](https://github.com/user-attachments/assets/769c4027-3212-4b39-9521-7b83cc8ef6dc)
+
+Now Let's Modify our index.html file
+
+![image](https://github.com/user-attachments/assets/73733bc4-9e82-4296-b6b3-99848a6473c1)
+
+![image](https://github.com/user-attachments/assets/4ea2c9dc-90ea-461d-af06-e5cd3c5d3274)
+
+![image](https://github.com/user-attachments/assets/e7ea771f-40a9-490c-936e-cb862b1862b2)
+
+
+
 ## Logging the previous Commits
 
 ## Deleting a Git Repo
