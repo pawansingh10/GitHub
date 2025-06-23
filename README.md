@@ -537,11 +537,64 @@ Now Let's Modify our index.html file
 
 ![image](https://github.com/user-attachments/assets/e7ea771f-40a9-490c-936e-cb862b1862b2)
 
+![image](https://github.com/user-attachments/assets/a78b187a-8a10-4213-870d-1cc2ec07ccaf)
+
+![image](https://github.com/user-attachments/assets/071a3cb8-5daa-42f4-8933-d23675587cb7)
+
+![image](https://github.com/user-attachments/assets/71ee61ae-7f4e-4f5b-a696-71f28d8e7e1f)
 
 
 ## Logging the previous Commits
+Till now, we have made lot of changes basically we can say we created first version when we added index.html, second version was when we added about.html and third version when we modified for adding subheading so on and so forth. So we want to see all of these version we can see by using cammand **git log**
+
+- **git log** means You're saying Hey Git show me all the different commits for versions of my project
+
+```shell
+  git log
+```
+![image](https://github.com/user-attachments/assets/a1a604e8-0746-4147-9a97-c9121d4d6da4)
+
+
+ ☝️ The most recent comment will come at the top.
+ 
+ ☝️ You will see Commit ID which is kind of a very long string also called as Hash ID (SHA 1,provides integrity & safety It is bcuz of Hashing). You will see all the commit has its unique IDs having a very long Hash Number which uses the algorithm **MD5**, which is Cryptographic Algorithm to convert any string into endcoded version. 
+
+☝️ You will see **HEAD-Master**, Master is basically a branch.
+
+☝️ You will see **Author : <name>**, **Date : Day Mon Year Timestamp**. Here Git knows Author name? It is us who told Git while configuring told that whatever commits happen with this computer/PC the User_name will be mine what we passed while configuring **git config --global user.name "User_name"**
+
+So this was about the most recent commit similarly you will see another commit for second most recent commit and so on.
+
+- You can see you commits in one line instead of parameter by using glag oneline, like this **git log -oneline**
+  
+```shell
+  git log --oneline
+```
+
+![image](https://github.com/user-attachments/assets/443392e3-2e5a-449e-9d63-6a989d64ceaa)
+
+> We learn about how you can see all the history of a project if it is git project from the beginning till the end.
+> These commits or Versions exits why? So that you can also roll back to any version if you want. 
 
 ## Deleting a Git Repo
+Here We will see a **very very dangerous command** which is to delete a git project and that is **rm -rf .git**
+
+```shell
+   rm -rf .git
+```
+☝️ Here rm is for **Remove** and -r is for **Recursively** and f stands for **Forcefully** even if it's not allowed delete everything.
+
+**💀 Disclaimer : You should never use this command until and unless it's really require for you to run**
+
+![CautionWarningSignGIF](https://github.com/user-attachments/assets/eb90804a-a7fb-4641-9eb9-b9e564d35fd2)
+
+If you delete the hidden folder .git by any chance by intentionally or unintentionally, you will lose all the git history,versions, changes you made and it will be untrackable.
+
+![image](https://github.com/user-attachments/assets/818b7245-6214-4059-bccc-fc5c0d4b4b1a)
+![image](https://github.com/user-attachments/assets/ea814b19-8bf9-4886-b023-21363a40aa53)
+![image](https://github.com/user-attachments/assets/d5eb5688-b958-41b9-8805-922b5ed6e2ac)
+
+
 
 
 # Section 7 : Additional Git Commands
