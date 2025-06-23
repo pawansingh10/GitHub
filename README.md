@@ -245,6 +245,7 @@ There are two ways to interacts with your computer/device to work on files and f
     ```
  
 - **Create Files & Folders**
+
   Let's see How do we create Files and Folders through commands
   
   - mkdir CLI -> make directory with the name CLI
@@ -280,6 +281,7 @@ There are two ways to interacts with your computer/device to work on files and f
   ```
    
 - **Delete Files & Folders**
+
 Let's see How in terminal we can delete files and folders
   - **rm file_name -> delete the file**
     ```shell
@@ -291,38 +293,238 @@ Let's see How in terminal we can delete files and folders
     ```
   > **rm can only remove files not directory so to remove directory there is rmdir**
 
-  ```shell
+    ```shell
     rmdir folder
     ```
   
   - rmdir CLI -> remove delete empty folder permanently of folder named CLI
     ```shell
-    rmdir folder/script.js
+      rmdir folder/script.js
     ```
   > **In Case of Non Empty Directory rmdir doesn't work, So we have rm -R** 
-  - rm -R CLI -> delete even non-empy folder R means Recurcive
+
+   rm -R CLI -> delete even non-empy folder R means Recurcive
     ```shell
     rm -R  folder/script.js
     ```
  
 - **Copy and Move**
-   - cp script.js f1/script.js
-   - cp f2/index.html f1/index.html
-   - cp -R f4 new
-   - mv index.html f1/index.html
-   - mv script.js hello.js -> for renaming use move only 
+  How do you copy(copy+paste) and move (cut+paste) files  & folders 
+   - cp script.js f1/script.js copy file from my current folder to another subfolder of my current folder
+  ```shell
+     cp script.js f1/script.js
+  ```
+   - cp f2/index.html f1/index.html //copy your current folder file to any target folder
+  ```shell
+   cp script.js D:/js/
+  ```
+   - cp -R f4 new // copy folder with files to my current folder
+  ```shell
+   cp -R f2 new
+  ```
+   - mv index.html f1/index.html // move file from one folder to another
+   ```shell
+    mv f1/script.js f2/
+   ```
+   - mv script.js hello.js -> for renaming we don't have any rename cmd, use move(mv) only by cut paste with new new
+   ```shell
+    mv script.js newscript.js
+   ``` 
   
   > ***You can up & down arrow key for prev & next cmd which you executed***
 
 
+
+
+
 # Section 5 : Git Introduction
+----------------------------------
+![image](https://github.com/user-attachments/assets/c229a12f-86d3-496f-a2de-74104239d40d)
 
+[Click Here for **Official Git Tutorial**](https://git-scm.com/docs/gittutorial)
 ## Intro
-   
+
+- Here we will start to learn about How we actually Work with Git?
+- 
+| **Category of Git Commands**|**Broadly 4 commands**|
+|-------------------|--------------|
+|**1. Creating Repository**| **git init**|
+|**2. Making Changes**| **git add, git status, git commit**|
+|**3. Parallel Development : Branching**| **git branch, git merge**|
+|**4. Syncing Repository**| **push, pull, fetch**|
+
+> **How to sync your local repository(Remote) with server repository(origin), So How to push/pull,fetch**
+
+## Three Stage Architecture
+- Let's understand What is Three Stage Architecture?
+There are 3 different states(stages) of a Git Project
+1. Modified
+2. Stage
+3. Committed
+
+![image](https://github.com/user-attachments/assets/221f9dab-3524-45fc-b98d-2a135c29e8f9)
+
+
+Whenever you're working with Git, You have your **git folder** called **git Project** 
+Git Project will always have a folder called **.git** and It's a hidden folder.
+
+Example :- 
+Let's say you're creating your own website portfolio.
+First file I want to add is **index.html**
+Second file **style.css**
+- **Modified**
+We created these file in our current working directory that is .git hidden folder Here we are in Modified Stage( Working Directory Stage)
+Once you satisfied that it looks good then save this version so that at any moment of time if I have come back to this version 1, I can do that.
+So We have to save this in database(git repository).
+we need to stage our file
+
+- **Staging Area** basically means you tell thaat which files or what changes you want to store in the next commit.
+> **Staging is likw whatever the changes you want to save in the next commit that area is known as Staging**
+
+then what you do is commit.
+
+- **Commit** basically means this is the final call, you want to save that So create a version for it.
+once you commit, Version will be created, there is a folder called .git and .git folder will take snapshot for whole project.
+
+Let's say after 10 days you want to add one more page **About.html** 
+So You created the new file about.html and did some modification in old file index.html
+
+Again Here you're in the working directory bcuz you have modified
+
  
+## Initialising Git Repository
+Let's see How to create a git repository, Here we're not talking about GitHub Repository here we're refering to creating a git repository on your local computer
+> You know Repository is a project or folder as simple.
+There are 2 ways to create a git repository
+1. Start or Initialize your own local git repository
+2. You can clone a remote repository to your local computer
+
+- If you're starting any project from the very beginning itself then you will have to choose 1st way, You'll initialize your own local git repository
+- If you're working with some other project website has been already been deployed & it's been 3 months and now your friend wants to contribute to your website. He wants to improve the functionality of your website. Your website is already a git project/repository. There is a folder of your website. Now your friend will not have to create own repository rather He will clone your project and then start working on that repository/project/folder.
+  
+> Later on We will see How to clone?
+
+- **git init** means You're saying "Hey Git, initialize an empty repository for me."
+```shell
+   git init
+```
+☝️This will create a hidden .git folder, That's where git stores everything
+
+```shell
+git status
+```
+☝️ To track files and folders status
+
+Practicles
+1. Create a folder Git_Github>Myportfolio
+2. Open it in any Code Editor VSCode
+3. Create Index.html file
+4. Open Your Terminal/Git Bash
+5. Go to your Git_Github>Myportfolio folder
+6. Now check the git status
+![image](https://github.com/user-attachments/assets/9093e75c-5c05-4791-80e3-79bf1c4c9b44)
+
+7. To create Git Repository on your local computer use the command git init
+![image](https://github.com/user-attachments/assets/a501e5f5-58dd-4970-b6d1-a1b45ab9c60f)
+![image](https://github.com/user-attachments/assets/0f4aef6d-3ce2-426b-9e1d-9704725d8b98)
+
+> Note : **Before Initialize Git please check git status so that Don't initialize git again and again otherwise It will reinitialize git again**
+![image](https://github.com/user-attachments/assets/73afa01f-98b0-4164-96b0-a884653ddbbf)
+
+8. Till Here you have created index.html and initializ git. So at this time index.html is in modified stage bcuz git doesn't know about this file index.html
+9. So If you check what's status? 
+![image](https://github.com/user-attachments/assets/bf74a945-3163-4ede-b397-9e009a5ad436)
+10. Git says - "Untrack file" as git doesn't know about the file So git want to understand that, that's why asking to add them into staging area and then commit & make version.
+11. Once you commit, It will come into .git folder and git will know that index.html
 
 
 
 
 
+# Section 6 : Tracking your Project
+------------------------------------
+
+## Tracking Files
+
+## Commit Changes
+   
+## Lifecycle of the Status of a file
+
+## Example of Lifecycle of the Status
+
+## Logging the previous Commits
+
+## Deleting a Git Repo
+
+
+# Section 7 : Additional Git Commands
+-------------------------------------
+
+## Skipping the Staging Area
+
+## What's the difference?
+
+## I'm gonna Ignore you
+
+## Remove and Move Files
+
+## Untrack an already tracked file
+
+## Unstaging and Modifying Files
+
+## Git Alias
+
+
+
+# Section 8 : Non-Linear Development : Branching
+--------------------------------------
+
+## What is Branching?
+
+## Why do we need Branching?
+
+## Creating a new Branch
+
+## Switching to Branches
+
+## Working with Branching
+
+## Branch Logging
+
+## Deleting a Branch
+
+
+# Section 9 : Non-Linear Development : Merging
+------------------------------------
+
+## Merging Introduction
+
+## Adding Funtionality
+
+## Basic Merging
+
+## Recursive Merging
+
+## Merge Conflicts
+
+## Resolving Conflicts
+
+## Git Branching Workflow in Production
+
+
+
+# Section 10 : Rebasing
+------------------------------------
+
+## Rebasing Introduction
+
+## Rebase Branch
+
+## How Git performs rebase internally?
+
+## Keypoints of Rebasing
+
+## When you should not use Rebasing?
+
+## Merge Vs. Rebase
 
