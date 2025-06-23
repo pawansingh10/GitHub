@@ -443,12 +443,82 @@ Practicles
 
 # Section 6 : Tracking your Project
 ------------------------------------
+Here, We will see How does Git actually tracks you Project, How Git manages all the changes that you are making in your project?
+All  the differt different Versions can be tracked with the help of Git.
 
-## Tracking Files
+## Tracking your Files
+In your current working directory at any moment there can be two different types of file **1. Tracked files** and another is **2. Untracked files**
+
+- Each file in your current working directory can be in one of the two states : **tracked** and **untracked**.
+
+  | **Tracked files** are the files that Git knows about.|
+  |------------------------------------------------------|
+  | **Untracked files**, any files in yoiur working directory thatwas noty in your last snapshot and is not in your staging area is **Untracked file**|
+
+Example : Suppose Index.html, in the version 1 there was only one file i.e. index.hml and Git knows that in version 1 there is only one file. Later you introduce a new file which is About.html
+    now Git deosn't know about About.html. So, Git will say this is untracked file.
+
+> Git is integrated by default with the one of the most popular Code Editor VS Code
+![image](https://github.com/user-attachments/assets/9c71003b-2d62-41fb-af5b-d850df4cbc5d)
+
+Now for the first time in our project we created Index.html and Git doesn't know about it. So We need to put it into Stage Area bcuz this is the second step from there we will commit and then Version will be created & Git knows everything inside .git folder so obviously will know about index.html
+
+So How dow we add this to Staging Area?
+Well, for that there is command for Tracking a specific New file or all the files & folders at once
+
+**git add <filename>** basically means You're saying, Hey Git add this file to staging area
+
+**git add .** Here why dot bcuz dot always refers to current directory and whatever the files and folders are there in current repository all will be staged together.
+```shell
+# for one specific file
+git add index.html
+
+# for all files and folders
+git add .
+```
+![image](https://github.com/user-attachments/assets/d69cd96f-7a6d-4de3-b59a-27d015d5e577)
+![image](https://github.com/user-attachments/assets/ca6f4ce3-94d7-42f4-8325-10f9f3995c98)
+
+> **You can also unstage a file or files and folders** (use "git rm --cached <file>..." to unstage)
 
 ## Commit Changes
+Here, we will see How do we commit changes? and that is the 3rd Step
+
+Moving files from staged area to the git folder is called a **commit**
+
+Making Commit, Creates **Version/Snapshot** of your project.
+
+We can do commit by using the command **git commit -m "Your commit message"** which means you're saying Hey Git commit this file -m is flag here stands for your message why did you make these changes.
+```shell
+git commit -m "add index.html"
+```
+![image](https://github.com/user-attachments/assets/86d8d49e-7464-420b-a7a9-449a4478e372)
+
+Now after commit, Git will create the version and git will remember this file life long means till this project exists.
+If you delete the file Git will rememeber that as well Oh you have deleted this file.
+
+![image](https://github.com/user-attachments/assets/8466370b-6920-4cf4-a4fe-8fa3853291e4)
+Here you can see the index.html file is removed from the git section in VS Code as We have commited the file. First Step, We created index.html in git repository, Second step we move index.html to Staging Area and Third Step we committed the index.file. So Version 1 of it created and file status changes from Untracked to Tracked to Added.
+
    
 ## Lifecycle of the Status of a file
+Here We will see Life Cycle of a File which is tracked or untracked from Untracked till commit
+
+There are 2 types of file Tracked file and Untracked file, If the file is tracked what are the different status
+
+In version 1 We have file called index.html which is actually a tracked file because we have committed index.html
+So Git knows that Git need to track this index.html file
+
+Now, You add a new file About.html So this file is in the working directory but this file is not tracked right now because this About.html was not in the Version 1. So About.html is untracked file.
+
+Tracked file (Index.html) can be either unmodified, modiefied or staged. So right now our index.html is in unmodified stage bcuz We had already committed this & as of now we have not made any changes in index.html
+
+But if I make some changes in Index.html like adding any new section or any new line or new word or even one character. It will go from Unmodified to Modified stage. After modified again you stage (git add index.html) It will goes in Staged Area, once you're in staged area if you do commit (git commit -m "New page added") Version 2 created, It will gain goes to unmodified stage.So basically this is the life cycle of Index.html till version 2.
+
+But If you have a new file like About.html, Here About.html will have nothing to do with Modified or Unmodified stage because this is new file & this new file is untracked So when you add (git add About.html) that file then it will directly goes to Staged Area. Once It is staged area you can do commit (git commit -m "added About.html") new version will be created and It will be moved to the Unmodified Stage. So this is the life cycle of About.html till version 3. 
+
+![image](https://github.com/user-attachments/assets/1effbecb-5476-4bc1-b948-1db959b348b1)
+
 
 ## Example of Lifecycle of the Status
 
