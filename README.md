@@ -1063,16 +1063,102 @@ Whenever we do the work of branching and merging in the actual production, there
 
 # Section 10 : Rebasing
 ------------------------------------
+Here, We will see and understand, What is the idea about Rebasing?
+As we know about Merging, How to work with Branches and How to Merge Branches?
+- 
+**To integrate the changes from one branch into another** There are 2 ways:-
+1. **Merge**
+2. **Rebasing**
 
+Example - Suppose you're in master branch and you want to add one more functionality on your project. So you create a different branch called ImproveUI. So once you're done or finish the work on that branch you have to take those changes and you have to integrate(Merge) those changes into master branch.
+ So we can do this by two different ways.
+ One way is **Merging** which we have seen already
+ Other way is **Rebasing**
+ 
 ## Rebasing Introduction
+The purpose of Rebasing is to take the changes and integrate into the different branches.
+It's same like Merging, the eventual outcome will be same as Merging, But the process of integrating changes are different from Merging.
+When we have to use Merge and when we have to use Rebase?
+
+Let's see code.
+1. First create a branch named experiment branch
+2. Create one file called Experiment.html
+3. Made Some changes in Experiment 1, git add . + git commit
+4. Again made changes in Experiment 2, git add . + git commit
+5. 
+
+- With the **rebase** command, you can take all the changes that were committed on one branch and replay them on a different branch.
+
+Let say we have lot of commit in our master branch, and from a point we created a new branch experiment and we did 2 commits in experiment branch, Also simulatenously we did one more commit in master branch as well.
+If you do the merging, Merging will take all the changes from experiment branch and master branch and will create  commit.
+But If you do rebasing, Rebasing will take those two commits from experiment branch and it will  create copy for that and delete those twro commits and It will append which basically means replay those same changes/commits to master branch and your master will commit at the latest commit location. and It look like Linear changes.
+
+![image](https://github.com/user-attachments/assets/fd50b570-2c2d-4389-9125-85c92f4eed2d)
 
 ## Rebase Branch
 
+So Let's do Rebasing, If you want to rebase experiment branch into the master branch, you need to be at the experiment. This is exactly opposite case in Merging.
+![image](https://github.com/user-attachments/assets/1fec0513-e205-42be-a55b-b90a277ba70b)
+
+
+
 ## How Git performs rebase internally?
+Let's see How Git performs rebase internally?
+This is a 5 Steps process:-
+
+example - We have few prior commits in master branch, from the latest last commit we created a experiment branch. And experiment branch has two commits and master branch also has a commit meanwhile.
+          Now Let see How rebasing happen at this moment.
+
+1. Git Pointer goes to the common ancestor of the two branches(the one you're on and the one you're rebasing onto)
+2. Git will Gets the diff introduced by each commit of the branch you're on.
+3. Git will Saving those diffs to temporary files
+4. Git will Resetting the current branch to the same commit as the branch you are rebasing onto.
+5. Finally applying each chanage in turn
+
+Let's look at How did we update our master branch to the recent commit that experiment branch has done?
+![image](https://github.com/user-attachments/assets/14910b07-c8eb-4936-beaa-71ac7df99027)
+
+So Now if you delete experiment branch
+![image](https://github.com/user-attachments/assets/e6aa0e6b-2353-45f9-813b-74476f394a2e)
+
+So It look like we have linealy develop this feature but this was not the case We created a branch made changes and commits and Rebase into the master branch and then merge state.
 
 ## Keypoints of Rebasing
+Basically advantages of Rebasing
+1. No difference in the end product of the integration, but rebasing makes makes for a cleaner history.
+2. The log history look like a linear histroy. I t appears that all the work happened in series, even when it originally happened in parallel.
+3. often, you'll do this to make sure your commits apply cleanly on a remote branch.
 
-## When you should not use Rebasing?
+> When we have to work with collaborators and the project that we're contributing to doesn't belong to us.Someone else maintain that project.
+
+> So What we do is create a local branch and rebase that branvh into your master branch and then send that code into the central repository server so that others can also see the same code. and they have to just take master branch forward like they have to do just fast forwarding that's it.
+
+> Most of the time when we do rebasing it's bcuz we are contributing with some open source software/project, different maintainers and we don;t have to trouble them by making a lot of other branches, pishing those branches into their repository. 
+
+We create a local branch, we rebase into master branch and then send this whole complete code to their repository.
+
+## When you should not use Rebasing 💀?
+Rebase has one major disadvantage 
+ 
+ **Do not perform rebase commits that exist outside your repository and that people may have based work on.**
+Example - 
+ When you rebase stuff, you're abondoning existing commits and creating new commits that are similar to existing commits but different.(Content & everything will be same but commit ids will be different)
+
+ Let say you have existing prior commits in master branch at a point where you have the last latest commit there you are creating a experiment branch and in your experiment branch you made 4 commits and you master branch 2 commits. If you are working on other repository 
+
+ - Most of the time when you're working on a local system or a local repository create a branch, rebase it with master branch and then push the whole code to the central repository so that the maintainer of the central repository/project thinks that you have developed/committed 5 commits and that is in a linear type of branch and maintainers will have to simply do the forwarding of the master branch.
+ - But if you think that a lot of other collaborators are there and someone is relying on your commit then don't rebase on the central repository. 
+
 
 ## Merge Vs. Rebase
+
+We have already seen what's difference between Merge Vs Rebase
+
+One point of view
+Commit history is a reord of **what actually happened**. then you can use Merging
+
+The opposing point is
+The commit history is the **story of how your project was made**. then you can use Rebasing
+
+
 
