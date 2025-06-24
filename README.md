@@ -767,39 +767,298 @@ Usage :-
 
 # Section 8 : Non-Linear Development : Branching
 --------------------------------------
+Branching (Non-Linear Development) is the most important concept in Git. After Branching We will see how to Merge the Branches
 
+Git actually follows the non-linear development or like Tree like Structure
+1. Why Branches?
+2. What are the uses of Branching?
+3. How to create Branches?
+4. How to work with Branches?
+   
 ## What is Branching?
+![image](https://github.com/user-attachments/assets/a5b1369e-0162-4cd9-a865-1a1f973e8d39)
+
+ All the version system that we have like Apache Subversion, Mercurial etc etc all of them supports Branching bcuz Branching is one of the most important feature in Version Control system.
+![image](https://github.com/user-attachments/assets/814e4d76-0df1-4c0f-aaa3-4732a2d46093)
+[Click Here for more details](https://fullscale.io/blog/top-10-version-control-systems/#h-best-version-control-systems)
+
+- A **Branch** in Git is simply a lightweight movable pointer [HEAD] to one of the commit
+- Branching in other VCS like Mercurial, Subvertion etc are very expensive bcuz if any point of time if you're creating a branch They copy entire project But Git is really amazing VCS which is having killer feature bcuz branching in Git is very lightweight. You don;t have to wait for a lot of time while creating Branches and you can move back and forth from one branch to another branch directly.
+
+ - **Branching :** Diverging from the main branch
+ Basically means You can continue to work for a feature without affecting the code in the main branch.
+You can take a branch from one commit and from there you can create your own branch and from there you started working on your feature. Now if any moment you feel your code is not working good you can simply delete your branch. So whatevr the changes you made for your branch files that will not affect the main line project(Master Branch)
+
+- The default branch name in Git is **MASTER**
+  We know that every tree must have at least one branch, Whenever you create a git project you always get one branch that is the main branch also known as Master Branch.
+
+  So Master branch is the main line of your project So don't mess with this line
+
+  If you want to mess with your code, try out new features, you're unsure that feature will work or not for that create new branch and if that feature is not working delete it. 
 
 ## Why do we need Branching?
+Here, We will see Why Branching is important in any version control system.
+
+Example - On your website you made 3 commits, in Version 1 you created index.html, in Version 2 you added About.html + modified index.html and in Version 3 you added contact.html section + modified index.html and few more commits. So this is your project main line which is your main/master branch, at this moment you only have one branch i.e main branch.
+
+Now two of your friends saw you website and say you website looks fine but we want to contribute to your website, A is saying I can add animation your Website and B is saying I can add dynamic contents on your website. But You're also continuing working on your website, So you want them to work for your website but you don't want to they directly chnage your website as they might destroy/break your website by any chance.
+
+So you can say okay you guys can work but my website is fully funtional and working at this stage you can create your own branches then A Will create a branch Animation and B will create another called Dynamic content
+
+Let say A started working and made 4 commits and B also made 3 commits meanwhile you're also working on website and you also made 2 commits
+
+After 10 days you see the progress of both A and B, You look at the A, the feature that he promised is working fine, but the feature that B promised is not as expected as your code is not working with adding the dynamic feature. So what you can do is ask B to delete the branch completely. So your code is exactly same as you want, you didn't made any change in your main branch but the code for A is working good and you want to use A Commits in main branch. So what you can do is Merge this branch into main branch & this process is known as merging.
+
+> Even if you're working with a big team having 10+ collaborators working on same project all of them are working on different different features. Someone is working on Authentication/API/Frontend etc So they will create different different branches, you can create N number of branch and also creating branched deleting branches, moving between branches is super easy and lightweight in Git. So this is where we use Branching.
+
+> Generally most of the time like 95% of time We will never commit on the master branch. We create a branch and if that branch works perfectly fine, then we merge that branch into main branch and that is also a commit called as **Merge Commit** 
+
+- So this is reason why we require branching bcuz we don't want to exploit the main website/project/master branch.
 
 ## Creating a new Branch
+Let's see How do we create branches in Git?
+
+![image](https://github.com/user-attachments/assets/2cc38f13-66d0-4c4e-980c-94a13b7fb65e)
+
+HEAD is a pointer that is in master branch and HEAD will always be at the last commit.
+So If you add one more commit HEAD will fo go the last commit.
+
+Before creating a Branch Let's See How many branches do we have right now?
+
+- **Get all the branches in your project**
+```shell
+   git branch
+   #Shows the available branches
+
+   git branch -V
+   # To know what was the recent commit in that branch
+```
+![image](https://github.com/user-attachments/assets/d6dd9cbc-6762-44f4-9257-adaa41a0ccf9)
+
+- **Creating a new branch by using the command git branch <branchname>**
+```shell
+   git branch branchname
+```
+![image](https://github.com/user-attachments/assets/3d754573-b320-40e7-8ac2-cfd053b3fedd)
+
+![image](https://github.com/user-attachments/assets/a19b1b62-aca6-46d6-8133-0b3acd3024d4)
+
+☝️ Here, Head is point to master branch and both master branch and develop branch pointing to same commit bcuz there is no commit in develop branch after creating it same for the master branch in the master branch the last recent commit was that only.
+But If you go into develop branch and create commits there then develop branch will grown on its own without affecting the master branch.
 
 ## Switching to Branches
+Here we will see, How do we **move between branches**?
+
+- **Checkout an existing branch**
+```shell
+   git checkout branchname
+```
+![image](https://github.com/user-attachments/assets/9609b8cd-af12-4c0e-95be-83dd144c9c83)
+Once you move to your develop branch, HEAD will point to your Develop branch which was earlier point to main branch
+
+☝️ The above command only work when branch will exist already. But if you want to create a branch and move immediately or checkout to that branch you can do that directly
+
+- **Creating and Checkout to a new branch**
+```shell
+   git checkout -b branchname
+```
+Here -b stands for Create and new branch and directly go to that branch
+
+![image](https://github.com/user-attachments/assets/197d97b5-e99b-4519-9244-08bb4410cce8)
+
+Similarly at any time you can switch to one branch to another by using git checkout <branchname>
+![image](https://github.com/user-attachments/assets/214d7400-89a5-4ad6-b2cf-6ee0211ae407)
+
 
 ## Working with Branching
+Here, We are going to work with branches
+![image](https://github.com/user-attachments/assets/ea8b5218-96e9-492d-a832-d45dc20d8054)
+
+![image](https://github.com/user-attachments/assets/96053c20-cb69-4eb2-b0d9-754e30a50210)
+![image](https://github.com/user-attachments/assets/68ccfe7b-283a-4987-b92d-59af9419fa67)
+
+![image](https://github.com/user-attachments/assets/d2e2978d-593f-45c2-98d7-203b52ff2549)
+☝️ Here you are in develop branch and made a commit so head is pointing to this recent last commit.
+So If you want to go the master branch you can switch by using git checkout master there you will see head will again point to last commit which was happend in master branch and we are no longer accessing the develop branch.
+![image](https://github.com/user-attachments/assets/4fbe4cdc-59ea-47f6-87ae-e2032464861e)
+
+![image](https://github.com/user-attachments/assets/1e60253d-c24f-4365-8e78-42377714fcea)
+
+![image](https://github.com/user-attachments/assets/1c47593a-9740-4d10-95f3-0cb1428c4e73)
+
 
 ## Branch Logging
 
+Git will warn you if when you made some changes in your develop branch and trying to move to master branch without committing the changes in develop branch.
+![image](https://github.com/user-attachments/assets/f2eff5d4-c657-4a80-a453-e40b63ac3199)
+
+![image](https://github.com/user-attachments/assets/47b9d464-1e19-497c-866a-8ce861a55a16)
+
+![image](https://github.com/user-attachments/assets/8fab296d-7bdd-4f42-a7a5-168af207c7b9)
+☝️ Here you will see master branch and ux branch but not develop branch, So where is it? Develop branch is now diverged as it has different commits from the main branch that's why you are not seeing it.
+
+We can see all the branches at once in console by using the commands
+```shell
+   git log --oneline
+   git log --oneline --graph --all
+```
+![image](https://github.com/user-attachments/assets/709388d0-62d4-4d45-a34d-15a38e40baa4)
+
+
 ## Deleting a Branch
+Let's see, How do we delete branches?
+Why/When do we actually need to delete the branches?
+The idea behind delete any branch is when you merge all the changes in master branch then we can delete our develop branch
+- 
+
+- **Deleting a merge branch by command git branch -d branchname** here d stands for delete
+```shell
+   git branch -d branchname
+```
+![image](https://github.com/user-attachments/assets/131f8f30-a625-4081-9827-c6cb7bfc7d34)
+So If you branch is already merged into main branch then only you can delete you branch.
+
+![image](https://github.com/user-attachments/assets/ff921500-6e4c-474f-b73b-f0e13b7495a2)
+
+
+- **Deleting a non-merge branch by command git branch -D branchname** here D stands for delete forcefully
+```shell
+   git branch -D branchname
+```
+
+![image](https://github.com/user-attachments/assets/8b38ba7e-aead-49e1-bbe0-0d0fda9913b1)
+
 
 
 # Section 9 : Non-Linear Development : Merging
 ------------------------------------
+Here, We will see Merging, Merging of Branches.
+
+Let's understand, Why is it important to merge branches?
+
+![image](https://github.com/user-attachments/assets/defe07be-90b8-4cd9-8714-1d5afd76b127)
+For adding any feature we create new branch, but why? bcuz as a precaution we don't want to commit directly in master branch so that I don't even accidently mess up with master branch. This is divergence that I'm taking another path and making changes there committing those changes once I satisfied that this branch is working successfully and page is looking good then you can merge these changes with master branch with a new commit. That's where Merging helps.
 
 ## Merging Introduction
+Merging will actually take all the changes from your new branch and it will merge into the main branch. bcuz master is our code in production.
 
 ## Adding Funtionality
+A requirement came from manager to add a new feature in your live ongoing project.
+So What you will do is Create a branch named New_Feature and start making changes and committing those changes into your New_feature branch.
 
 ## Basic Merging
+Suppose while you're working on you New_Feature branch your manager came & said Hey I need these modification in our Home page by EOD today.
+So How will you do that first thing you will do is first commit the changes whatever you have made in your New_Feature branch other if you will forcefully jump into ane branch to another without committing then in that case your code will be dicarded. So commit it and then swtich to the master branch create another new branch for the Home_Page modification make changes commit it and then be very sure your code is working fine once you're sure then merge the changes into main branch with a new commit and return switch back to your New_feature branch where you had working and commited your code.
+
+- To merge two branches in this case, If you want to merge changes of impFix branch into master branch, first thing you have to do is checkout master first.
+```shell
+   git checkout master
+```
+```shell
+   git merge impfix 
+```
+![image](https://github.com/user-attachments/assets/47526561-1575-447a-8375-4d2be02e951e)
+![image](https://github.com/user-attachments/assets/fd8b4bef-cf7d-4067-82f8-ae24bef1c1e6)
+☝️ Here in the above case you didn't made any changes and any commit in your master branch, So It was easy to merge bcuz the only changes and commits are done in your impfix branch not in master branch.
+
+![image](https://github.com/user-attachments/assets/e15ebb71-b556-4e24-a1bc-b4f6871eb321)
+
+once you merge the branch into main branch you can delete your branch
+![image](https://github.com/user-attachments/assets/726297cc-f079-4679-ae92-409678aa94ad)
+
+But in case of changes & commits in feature branches as well as changes are commits in master branch as well, there you will see a different type of Merge known as Recursive Merge.
 
 ## Recursive Merging
+- Once your priority task which was given by your manager is done, Let's go back to the development branch bcuz we were developing the contact form
+```shell
+   git checkout develop
+```
+The changes that we made in impfix is not reflected in in this develop branch, why is it? bcuz we have merged impfix with main branch. we haven't merge with develop branch.
+So one way is you can merge those changes into your develop branch by using **git merge master** through this all those changes files folder all will be reflected in your develop branch.
+But this is not required bcuz we don't want to keep the develop branch updated, we always only neeed to keep master branch updated.
+
+There's no point to updating develop branch. So let's continue developing our feature contact.html
+
+So Now master is pointing to recent commit which was done while we merged the impfix with master and in our develop branch we made two commits. So Now we have to merge our both commits of develop with the recent commit of master. So this will be not easy as we did in case of only commit happend in impfix branch only not in master branch.
+Let's see How we can do that.
+![image](https://github.com/user-attachments/assets/7176a5f6-f991-4211-8007-cb2cdb1a72ec)
+
+Now we want to merge the changes of the master branch and merge the changes of the develop branch
+1. First come to the master branch ```git checkout masterbranch```
+2. Second Step will be merge ```git merge develop``` Here the only difference you will see is as soon as you hit enter, It will ask you to give a message although it is not required the messahe is already there "Merge branch develop" This will be the commit message. Now you can ask where does this commit come from? So may be you can remove the commit message or overwrite you can easily do. But We are okay & happy with the Commit message to let's press **esc + : + w + q**  here wq stand for Write and Quit to skip commit message.
+3. So what you will see is **Merge made by 'recursive' strategy** unlike in the previous case there **Merge made by fast Forwarding**
+![image](https://github.com/user-attachments/assets/17d979a3-c658-4163-84ec-1cc70d275062)
+
+4. Now you will see your contact.html page will be updated as changes has been merged and commited to master branch.
+5. Now Your Master Branch is up to date which contains the changes from impfix branch as well as develop branch
+![image](https://github.com/user-attachments/assets/e65fccd6-13df-4668-a2fe-097b74f7741a)
+
+It was not that simple as it was in the case of fast forward. 
+- How does Git merges two branches if they do not have the same commit?
+1. We have to merge develop into the master branch and their common ancestor(commit) in both branches is one where the diverging started.
+2. So Both Master branch and develop branch meet at the common ancestor there, at that point the code in both branches were exactly same.
+3. But After this Master branch made some other changes and commits and develop branch also made different changes and commits.
+4. Now what git will do is - It will start checking what are the chnages made by master branch? and What are the changes made by develop branch?
+5. And Git will try to merge both of them recursively. So this is something called **3 Ways Merging**
+6. At the end there will be new commit "Merge develop recursively"
+![image](https://github.com/user-attachments/assets/6dac4cc9-cc7d-4f4d-98b3-40e6efbbc966)
+
+7. New Commit name is Merge develop and It will have 2 parents bcuz the content is not coming from one branch, rather content is coming from 2 branches one is from master branch and another one is develop branch
+8. So This new commit or snapshot has 2 parents and Master will point to this  latest commit.
+![image](https://github.com/user-attachments/assets/17c411c2-bba0-4a7d-8c44-98786ae8087a)
 
 ## Merge Conflicts
+Here we will see, Merge Conflicts.
+It's an interesting idea bcuz It annoys as well as it lead to conflicts and Conflicts are never encourage.
+
+> **Change in a file made by 2 different branches, trying to get merge results in a Merge Conflict**
+
+So, Merge conflicts happens when two different branches try to manipulate or change the same line of code in the same file.
+Example - We have a file home.html, and there is heading is "Pawan Singh"
+          Let say two branches B1 anf B2, Branch B1 want to change heading to "Pawan" and branch B2 want to this heading to "Hi, This is Pawan!!"
+          Now when you try to merge these changes what  will happen? They both will result in a conflict bcuz Git will be not able to understand which change should I accept? that's lead to Merge Conflict.
+
+- **Let's see How a Conflict look like?** through code.
+  1. We have to change Heading in home.html
+  2. So create a branch B1
+  3. Also create another branch B2
+  4. Let both try to modified the heading according to their own wish
+  5. Now we want to merge B1 and B2, Let's see what will happen?
+  7. Here you will see conflict arises bcuz B1 have changed the Heading and B2 also changed the heading, Now Git will not understand which changes It should accept?
+  ![image](https://github.com/user-attachments/assets/2d31039c-ce59-4100-ab25-22080838a96c)
+  ![image](https://github.com/user-attachments/assets/9c365d11-5b93-46bd-ad5d-87beaed0fd51)
+  ☝️ Automatic Merge failed, this means that Git can't automatically take all the changes from from the branches and merged automatocally. So you need to manually fix them
+      Fixed these conflicts and then commit the results.
+  We will see how to fix them?
+  
+  
+> **😊 In real world, Merge conflicts happens alot!!** when two programmers/collaborators works on the same file.
+
 
 ## Resolving Conflicts
+Let's see How to resolve the Conflicts?
+By the if you have VS Code, It as a property which will show you the conflict is highlighted in the Editor.
+![image](https://github.com/user-attachments/assets/7186ee73-9591-4f5c-9289-04fd92a479dd)
+
+By the way if you look for the git status in b2, you will see unmerged path
+![image](https://github.com/user-attachments/assets/06bf5920-0af7-4e46-aee5-b65880f27ca2)
+
+Now you have to make the changes manually in the code selection any of the them either current or upcoming save them and then add and commit, merge will be successful.
+![image](https://github.com/user-attachments/assets/f147f93b-5148-49e2-a66d-fdc8b01f36ca)
+
+> You can see which branched are merged or which are not? by sing the command
+```shell
+    git branch --merged
+    git branch --no-merged
+```
 
 ## Git Branching Workflow in Production
-
+Here, we will see, How actually Branching look like in production?
+Whenever we do the work of branching and merging in the actual production, there are always two type of branches.
+1. **Long Running Branches** - Branches that works for very long time like master branch, development branch actually till the project survive.
+2. **Topic Branches** - Branches which are related with basic small topics like Authentication, UI Changes, these topic branches live for a short period of time till the functionality is there once you are done with functionality merged changes into development or master branch then you will delete these Topic/Short Term branches
+   
+![image](https://github.com/user-attachments/assets/961ccf1a-afe9-47c4-97b3-6aef04099039)
 
 
 # Section 10 : Rebasing
