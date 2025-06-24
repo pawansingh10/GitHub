@@ -707,10 +707,63 @@ So You can do that by using cammand **git rm --cached <filename>**
 
 
 ## Unstaging and Modifying Files
+We have see How do we stage file by using git add . but can we unstaged file, if yes how?
+
+Whenever you make changes you do the Staging and then Commit to save that a version.
+But suppose you have written code and that's not suitable & you already added the file for staging area, so what you can do is unstage file by using command **git restored --stage <filename>**
+
+```shell
+   git restore --staged <filename.txt>
+```
+
+![image](https://github.com/user-attachments/assets/e1791270-a6a6-4cb2-b50e-1afa39cb9213)
+
+Let's say if by chance some of your youger brother/sister overwrite your code with random stuff in your contact.file & your page stop working functioanlly in that case you can revert back your previous version of that file by using the command **git checkout --filename.txt**, this command takes your file to the last version/commit
+![image](https://github.com/user-attachments/assets/e8337a39-616d-4925-911a-042c3207633c)
+
+```shell
+   git checkout --filename
+```
+![image](https://github.com/user-attachments/assets/d8306259-48f2-498e-a3cd-cde2538593b9)
+
+
+> **NOTE : 💀 git checkout --filename ⚡can be a dangerous command as it discards all your current changes in the current working directory So Be Very Careful while using**
+
+Again if by any chance all the files has been changed then If you want to rollback to the previous commit. losing all newly modified files
+```shell
+ git checkout -f
+```
+
 
 ## Git Alias
+Let's see another feature of Git, which is how do we alias?
+- **Alias** basically means another name of something
+- Alias can be writtenn as a short name for a big term.
+Suppose You have a very long command and you're using it frequently so you want alias that cmd with small keyword. So for that you have to configure alias
+Example-
+```shell
+ git status
+# We want to use it as st
+ git st
+```
+Let's see How to setup Alias?
 
+### Setting Alias
+```shell
+   git config --global alias.st status
+```
+☝️ git config --global alias.<new_short_name_for_cmd> original_command_name
+Usage :- 
+```shell
+   git st
+```
+![image](https://github.com/user-attachments/assets/537c2759-1581-4e7b-92c4-862b97164096)
 
+![image](https://github.com/user-attachments/assets/1f349f4b-9930-4117-ad2c-fd4aa3d6b2cb)
+
+![image](https://github.com/user-attachments/assets/faf85485-9afc-415f-b287-0dc6289af79f)
+
+> **We can set alias for complex commands**
 
 # Section 8 : Non-Linear Development : Branching
 --------------------------------------
