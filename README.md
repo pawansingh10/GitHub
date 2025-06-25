@@ -1,4 +1,4 @@
-# GitHub
+# Git
 Hello Welcome in the world of Git and GitHub
 
 # Section 1 : Welcome to Git
